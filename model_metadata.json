@@ -1,0 +1,159 @@
+{
+  "model_name": "Random Forest",
+  "target": "Next-day membrane permeability P(t+1), LMH/kPa",
+  "features": [
+    "Flux",
+    "TMP",
+    "Permeability",
+    "Perm_lag1",
+    "Perm_lag2",
+    "TMP_change",
+    "Flux_change",
+    "MLSS",
+    "MLVSS",
+    "MLVSS_MLSS",
+    "COD_in",
+    "COD_out",
+    "COD_removal",
+    "pH",
+    "Turbidity",
+    "TDS",
+    "Conductivity",
+    "Cleaning_Event",
+    "Days_since_cleaning"
+  ],
+  "hyperparameters": {
+    "max_depth": 3,
+    "max_features": 1.0,
+    "min_samples_leaf": 1,
+    "n_estimators": 300
+  },
+  "test_metrics": {
+    "Persistence baseline": {
+      "R2": 0.4537,
+      "RMSE": 0.0499,
+      "MAE": 0.0364
+    },
+    "Multiple Linear Regression": {
+      "R2": 0.262,
+      "RMSE": 0.058,
+      "MAE": 0.0348
+    },
+    "Random Forest": {
+      "R2": 0.6699,
+      "RMSE": 0.0388,
+      "MAE": 0.0328
+    },
+    "XGBoost": {
+      "R2": 0.5499,
+      "RMSE": 0.0453,
+      "MAE": 0.035
+    }
+  },
+  "validation_metrics": {
+    "Persistence baseline": {
+      "R2": 0.444,
+      "RMSE": 0.0654,
+      "MAE": 0.0402
+    },
+    "Multiple Linear Regression": {
+      "R2": 0.0955,
+      "RMSE": 0.0834,
+      "MAE": 0.0562
+    },
+    "Random Forest": {
+      "R2": 0.6943,
+      "RMSE": 0.0485,
+      "MAE": 0.0369
+    },
+    "XGBoost": {
+      "R2": 0.6479,
+      "RMSE": 0.052,
+      "MAE": 0.0386
+    }
+  },
+  "feature_importance": {
+    "Permeability": 0.6975,
+    "Days_since_cleaning": 0.2174,
+    "Perm_lag1": 0.0305,
+    "Perm_lag2": 0.0246,
+    "TMP": 0.0067,
+    "COD_in": 0.0051,
+    "Conductivity": 0.0036,
+    "Turbidity": 0.0023,
+    "COD_out": 0.0019,
+    "COD_removal": 0.0019,
+    "MLSS": 0.0014,
+    "TDS": 0.0013,
+    "MLVSS_MLSS": 0.0012,
+    "MLVSS": 0.001,
+    "Flux_change": 0.001,
+    "TMP_change": 0.001,
+    "Flux": 0.0009,
+    "pH": 0.0005,
+    "Cleaning_Event": 0.0001
+  },
+  "feature_ranges": {
+    "Flux": {
+      "min": 16.59754210704327,
+      "max": 20.85898275157884,
+      "median": 18.713223229490723
+    },
+    "TMP": {
+      "min": 9.575937963361069,
+      "max": 13.965799662991902,
+      "median": 11.777870644097295
+    },
+    "COD_in": {
+      "min": 240.25861707967357,
+      "max": 412.86569227054815,
+      "median": 325.0007762224609
+    },
+    "COD_out": {
+      "min": 31.24515437181684,
+      "max": 79.59739578521368,
+      "median": 52.03382737199233
+    },
+    "MLSS": {
+      "min": 4517.716639200253,
+      "max": 5902.718846698989,
+      "median": 5330.978176768787
+    },
+    "MLVSS": {
+      "min": 3117.4769457379784,
+      "max": 4370.626833156018,
+      "median": 3900.930463897622
+    },
+    "pH": {
+      "min": 7.250013247170432,
+      "max": 7.80153673921231,
+      "median": 7.560793346849664
+    },
+    "Turbidity": {
+      "min": 0.6647750982498694,
+      "max": 2.1221174834605177,
+      "median": 1.4537312613791051
+    },
+    "TDS": {
+      "min": 558.0633848583701,
+      "max": 663.0824003766169,
+      "median": 616.5640787093033
+    },
+    "Conductivity": {
+      "min": 1111.4480838303243,
+      "max": 1332.4425628382307,
+      "median": 1232.603513458187
+    },
+    "Permeability": {
+      "min": 1.4021346156926615,
+      "max": 1.7682085218405679,
+      "median": 1.5698583042133407
+    }
+  },
+  "train_period": "2026-01-01 to 2026-06-29 (final frozen model)",
+  "split": {
+    "train": "targets Jan-Apr",
+    "validation": "targets May",
+    "test": "targets June"
+  }
+}
